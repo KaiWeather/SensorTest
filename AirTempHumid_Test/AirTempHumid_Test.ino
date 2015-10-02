@@ -4,8 +4,8 @@
   Kai Weather Monitoring Project
   Date: February 27th, 2015
   
-  This Code reads the analog value off Sparkfun's Wind Direction unit.
-  https://www.sparkfun.com/products/8942
+  This Code I2C digital sensor data for both Ambient Temperature and Relative Humidity
+  https://www.adafruit.com/products/1899
 
   SDL ───────┐
            HTU210
