@@ -1,30 +1,30 @@
 /*
   Water Temperature Sensor Test
- By: Daniel Noyes
- Kai Weather Monitoring Project
- Date: February 26th, 2015
- 
- This Code uses the dallas one wire bus
- 
- This Code assumes a 1 Kohm pull up resistor on the digital line
- 
- Based on the Dallas Temperature Example:
- https://github.com/milesburton/Arduino-Temperature-Control-Library
- 
+  By: Daniel Noyes
+  Kai Weather Monitoring Project
+  Date: February 26th, 2015
+  
+  This Code uses the dallas one wire bus
+  
+  This Code assumes a 1 Kohm pull up resistor on the digital line
+  
+  Based on the Dallas Temperature Example:
+  https://github.com/milesburton/Arduino-Temperature-Control-Library
+  
        ^ 5 volts
        │
  RED ──┘
- 
+
        ^ 5 volts
        │
        R 1 Kohm - pull up
        │
  YLW ──┴────────── D4
- 
+
  BLU ──┐
        │
        V GND
- */
+*/
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
@@ -43,17 +43,17 @@ void setup() {
   Serial.begin(9600);
   delay(2000);
   Serial.println("Initiating Water Temperature Sensor Test");
-
+  
   Serial.print("Searching for any sensors...");
   sensors.begin();
   Serial.print("Found ");
   Serial.print(sensors.getDeviceCount(), DEC);
   Serial.println(" Devices");
-
+  
   //test search for temperature sensor
   if (!sensors.getAddress(Temp_0, 0))
     Serial.println("Unable to find address for Device 0");
-
+    
   Serial.print("Device 0 Address: ");
   printAddress(Temp_0);
   Serial.println();
@@ -64,7 +64,7 @@ void setup() {
   Serial.print("Device 0 Resolution: ");
   Serial.print(sensors.getResolution(Temp_0), DEC);
   Serial.println();
-
+  
   Serial.println("Finished INIT");
 }
 
@@ -104,8 +104,7 @@ void printAddress(DeviceAddress deviceAddress)
   for (uint8_t i = 0; i < 8; i++)
   {
     if (deviceAddress[i] < 16)
-      Serial.print("0");
+       Serial.print("0");
     Serial.print(deviceAddress[i], HEX);
   }
 }
-

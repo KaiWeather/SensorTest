@@ -1,27 +1,27 @@
 /*
   Wind Direction Test
- By: Daniel Noyes
- Kai Weather Monitoring Project
- Date: February 26th, 2015
- 
- This Code reads the analog value off Sparkfun's Wind Direction unit.
- https://www.sparkfun.com/products/8942
- 
- This Code assumes a 1 Kohm pull up resistor on the analog line
- 
-      ^ 5 volts
-      │
-      R 1 Kohm
-      │
- A1 ──┴── WindPin1 ───┐
-                      R - Variable Resistance Based on Wind Direction
-      ┌── WindPin2 ───┘
-      │
-      V GND
- */
+  By: Daniel Noyes
+  Kai Weather Monitoring Project
+  Date: February 26th, 2015
+  
+  This Code reads the analog value off Sparkfun's Wind Direction unit.
+  https://www.sparkfun.com/products/8942
+  
+  This Code assumes a 1 Kohm pull up resistor on the analog line
+  
+       ^ 5 volts
+       │
+       R 1 Kohm
+       │
+  A1 ──┴── WindPin1 ───┐
+                       R - Variable Resistance Based on Wind Direction
+       ┌── WindPin2 ───┘
+       │
+       V GND
+*/
 
 // Pin Constaint for each device
-const int WINDDIR = A1;
+const int WINDDIR = A0;
 
 void setup() {
   Serial.begin(9600);
@@ -79,5 +79,4 @@ float wind_direction()
 
   return (-1); // does not exist, sensor not found
 }
-
 
